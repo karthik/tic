@@ -1,3 +1,4 @@
+AASC
 appveyor
 Appveyor
 AppVeyor
@@ -45,6 +46,7 @@ customizations
 cyclocomp
 datew
 dbi
+debian
 DeCicco
 deps
 desc
@@ -72,6 +74,7 @@ FII
 fileSize
 filetype
 fnd
+FRONTEND
 funder
 fxcoudert
 fxz
@@ -159,6 +162,7 @@ nFC
 nhash
 nlopt
 NOHASHDIR
+noninteractive
 nsloppiness
 NUM
 nv
@@ -184,6 +188,7 @@ programmingLanguage
 ps
 purrr
 rb
+rcheckserver
 rcmdcheck
 RdMacros
 readme
@@ -232,6 +237,7 @@ SoftwareSourceCode
 softwareSuggestions
 spdx
 specfic
+statmath
 stringr
 subclasses
 subsequential
@@ -256,12 +262,14 @@ usethis
 usr
 utest
 vectorized
+ver
 VignetteBuilder
 VM
 WebRequest
 wget
 withr
 writeLines
+wu
 www
 xquartz
 xz
@@ -269,3 +277,4 @@ yaml
 YAML
 yEd
 yml
+yq
