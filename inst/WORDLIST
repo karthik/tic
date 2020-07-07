@@ -257,6 +257,7 @@ supersecret
 synch
 SystemRequirements
 testthat
+texlive
 TicStep
 tidyverse
 tinytex
