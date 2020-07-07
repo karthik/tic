@@ -5,7 +5,7 @@ RUN \
 	apt-get -y dist-upgrade && \
 	DEBIAN_FRONTEND=noninteractive apt-get -yq install \
 	locales cloc curl parallel debian-keyring \
-	libnode-dev libarchive-dev
+	libnode-dev libarchive-dev dvisvgm python3-mechanize
 
 RUN curl "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xfe6b0f6d941769e0b8ee7c3c3b1c3b572302bcb1" | APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 apt-key add -
 
