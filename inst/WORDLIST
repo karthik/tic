@@ -22,6 +22,7 @@ cheatsheet
 ci
 circleci
 cli
+cloc
 cmd
 CMD
 codecov
@@ -114,12 +115,14 @@ jeroen
 Jeroen
 karthik
 Karthik
+keyring
 keyserver
 Kirill
 knitr
 krlmlr
 Krystalli
 LazyData
+libarchive
 libcurl
 libexec
 libgdal
@@ -127,6 +130,7 @@ libgeos
 libglu
 libgmp
 libgs
+libnode
 libproj
 libs
 LIBS

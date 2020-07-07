@@ -2,8 +2,10 @@ FROM rocker/r-ver:3.6.3
 
 RUN \
 	apt-get update && \
-	DEBIAN_FRONTEND=noninteractive \
-	apt-get install -y curl gnupg2
+	apt-get -y dist-upgrade && \
+	DEBIAN_FRONTEND=noninteractive apt-get -yq install \
+	locales cloc curl parallel debian-keyring \
+	libnode-dev libarchive-dev
 
 RUN curl "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xfe6b0f6d941769e0b8ee7c3c3b1c3b572302bcb1" | APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 apt-key add -
 
