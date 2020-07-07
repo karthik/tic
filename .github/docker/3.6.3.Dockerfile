@@ -96,7 +96,7 @@ RUN apt-get update \
                --disable-nls \
                --with-recommended-packages \
   ## Build and install
-  && make -j2 \
+  && make -j4 \
   && make install \
   ## Add a library directory (for user-installed packages)
   && mkdir -p /usr/local/lib/R/site-library \
