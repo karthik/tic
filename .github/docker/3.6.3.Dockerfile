@@ -1,9 +1,4 @@
-FROM debian:testing
-
-LABEL org.label-schema.license="GPL-2.0" \
-      org.label-schema.vcs-url="https://github.com/rocker-org/rocker-versioned" \
-      org.label-schema.vendor="Rocker Project" \
-      maintainer="Carl Boettiger <cboettig@ropensci.org>"
+FROM cran/debian
 
 ARG R_VERSION
 ARG BUILD_DATE
@@ -101,7 +96,7 @@ RUN apt-get update \
                --disable-nls \
                --with-recommended-packages \
   ## Build and install
-  && make \
+  && make -j2 \
   && make install \
   ## Add a library directory (for user-installed packages)
   && mkdir -p /usr/local/lib/R/site-library \
@@ -128,25 +123,3 @@ RUN apt-get update \
   && apt-get autoremove -y \
   && apt-get autoclean -y \
   && rm -rf /var/lib/apt/lists/*
-
-
-RUN \
-	apt-get update && \
-	apt-get -y dist-upgrade && \
-	DEBIAN_FRONTEND=noninteractive apt-get -yq install r-base-dev \
-	locales cloc curl parallel vim wget debian-keyring git \
-	libnode-dev libarchive-dev
-
-RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
-	&& locale-gen en_US.utf8 \
-	&& /usr/sbin/update-locale LANG=en_US.UTF-8
-
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
-
-RUN curl "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xfe6b0f6d941769e0b8ee7c3c3b1c3b572302bcb1" | APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 apt-key add -
-
-RUN \
-	echo "deb http://statmath.wu.ac.at/AASC/debian testing main non-free" > /etc/apt/sources.list.d/rcheckserver.list && \
-	apt-get -y update && \
-	DEBIAN_FRONTEND=noninteractive apt-get -yq install rcheckserver
