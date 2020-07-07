@@ -1,5 +1,8 @@
 FROM rocker/r-ver:3.6.3
 
+RUN \
+	apt-get install -y curl
+
 RUN curl "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xfe6b0f6d941769e0b8ee7c3c3b1c3b572302bcb1" | APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 apt-key add -
 
 RUN \
