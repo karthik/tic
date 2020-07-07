@@ -5,6 +5,7 @@ AppVeyor
 args
 aut
 BASEDIR
+bcb
 blogdown
 Blogdown
 bookdown
@@ -59,10 +60,12 @@ dll
 dmg
 docType
 doi
+DONT
 dontrun
 dsl
 DSL
 edu
+ee
 env
 ErrorActionPreference
 evans
@@ -110,6 +113,7 @@ jeroen
 Jeroen
 karthik
 Karthik
+keyserver
 Kirill
 knitr
 krlmlr
@@ -184,6 +188,7 @@ patrick
 phracker
 pkgdown
 pkgType
+pks
 programmingLanguage
 ps
 purrr
@@ -271,6 +276,7 @@ withr
 writeLines
 wu
 www
+xfe
 xquartz
 xz
 yaml
