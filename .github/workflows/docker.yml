@@ -24,3 +24,4 @@ jobs:
           repository: pats22/tic
           tags: latest
           path: .github/docker
+          dockerfile: .github/docker/3.6.3.Dockerfile

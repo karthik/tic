@@ -74,6 +74,8 @@ devtools
 dir
 dll
 dmg
+dockerfile
+Dockerfile
 docopt
 docType
 doi
