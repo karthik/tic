@@ -12,16 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # In this step, this action saves a list of existing images,
-      # the cache is created without them in the post run.
-      # It also restores the cache if it exists.
-      - uses: satackey/action-docker-layer-caching@v0.0.3
-
-      - uses: docker/build-push-action@v1
+      - uses: whoan/docker-build-with-cache-action@v5
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: pats22/tic
-          tags: latest
-          path: .github/docker
+          password: "${{ secrets.DOCKER_PASSWORD }}"
+          image_name: tic
           dockerfile: .github/docker/3.6.3.Dockerfile
