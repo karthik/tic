@@ -5,6 +5,7 @@ name: use-docker
 
 jobs:
   all:
+    runs-on: ubuntu-latest
     container: pats22/tic
 
     steps:
