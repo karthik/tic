@@ -54,7 +54,7 @@ RUN cd tmp/ \
    && echo MRAN=$MRAN >> /etc/environment \
   && echo "options(repos = c(RSPM ='https://packagemanager.rstudio.com/cran/__linux__/xenial/latest', CRAN='$MRAN'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site
 
-RUN cd tmp/
+RUN cd tmp/ \
   && Rscript -e "install.packages('remotes'), repo = '$RSPM')" \
   && R -q -e 'remotes::install_github("ropensci/tic", dependencies = TRUE)' \
   ## Clean up from R source install
