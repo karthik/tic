@@ -1,0 +1,14 @@
+on:
+  push:
+
+name: use-docker
+
+jobs:
+  all:
+    container: pats22/tic
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: "Run R"
+        run: R -q -e '1 + 2'
