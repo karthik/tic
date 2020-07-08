@@ -1,4 +1,4 @@
-FROM cran/debian
+FROM cran/ubuntu
 
 ARG R_VERSION
 ARG BUILD_DATE
