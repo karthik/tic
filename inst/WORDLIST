@@ -234,6 +234,7 @@ osgeo
 osx
 OutFile
 packagedocs
+packagemanager
 pandoc
 PAPERSIZE
 patrick
@@ -280,6 +281,7 @@ Rprofile
 rprojroot
 RSA
 Rscript
+RSPM
 rstats
 rstudio
 RStudio's
@@ -355,6 +357,7 @@ wu
 www
 xauth
 xdg
+xenial
 xf
 xfe
 xfonts

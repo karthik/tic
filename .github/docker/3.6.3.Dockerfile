@@ -52,13 +52,11 @@ RUN cd tmp/ \
   && if [ -z "$BUILD_DATE" ]; then MRAN=$CRAN; \
    else MRAN=https://mran.microsoft.com/snapshot/${BUILD_DATE}; fi \
    && echo MRAN=$MRAN >> /etc/environment \
-  && echo "options(repos = c(CRAN='$MRAN'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
-  ## Use littler installation scripts
-  && Rscript -e "install.packages(c('littler', 'docopt', 'remotes'), repo = '$CRAN')" \
+  && echo "options(repos = c(RSPM ='https://packagemanager.rstudio.com/cran/__linux__/xenial/latest', CRAN='$MRAN'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site
+
+RUN cd tmp/
+  && Rscript -e "install.packages('remotes'), repo = '$RSPM')" \
   && R -q -e 'remotes::install_github("ropensci/tic", dependencies = TRUE)' \
-  && ln -s /usr/local/lib/R/site-library/littler/examples/install2.r /usr/local/bin/install2.r \
-  && ln -s /usr/local/lib/R/site-library/littler/examples/installGithub.r /usr/local/bin/installGithub.r \
-  && ln -s /usr/local/lib/R/site-library/littler/bin/r /usr/local/bin/r \
   ## Clean up from R source install
   && cd / \
   && rm -rf /tmp/*
