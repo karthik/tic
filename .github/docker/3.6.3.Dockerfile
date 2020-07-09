@@ -110,9 +110,8 @@ RUN apt-get update \
   && if [ -z "$BUILD_DATE" ]; then MRAN=$CRAN; \
    else MRAN=https://mran.microsoft.com/snapshot/${BUILD_DATE}; fi \
    && echo MRAN=$MRAN >> /etc/environment \
-  && echo "options(repos = c(RSPM ='https://packagemanager.rstudio.com/cran/__linux__/xenial/latest', CRAN='$MRAN'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
-  && R -q -e "install.packages('remotes')" \
-  && R -q -e 'remotes::install_github("ropensci/tic", dependencies = TRUE)' \
+  && echo "options(repos = c(RSPM ='https://packagemanager.rstudio.com/cran/__linux__/focal/latest', CRAN='$MRAN'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
+  && echo 'options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> usr/local/lib/R/etc/Rprofile.site \
   ## Clean up from R source install
   && cd / \
   && rm -rf /tmp/* \
