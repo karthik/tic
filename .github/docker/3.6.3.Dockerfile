@@ -23,7 +23,7 @@ RUN apt-get update \
     libbz2-1.0 \
     libcurl4 \
     libicu66 \
-    libjpeg-turbo \
+    libturbojpeg \
     libopenblas-dev \
     libpangocairo-1.0-0 \
     libpcre3 \
