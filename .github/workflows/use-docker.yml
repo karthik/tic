@@ -6,7 +6,7 @@ name: use-docker
 jobs:
   all:
     runs-on: ubuntu-latest
-    container: pats22/tic
+    container: pats22/tic:3.6.3
 
     steps:
       - uses: actions/checkout@v2
