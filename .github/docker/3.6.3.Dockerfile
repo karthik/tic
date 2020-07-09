@@ -120,8 +120,7 @@ RUN apt-get update \
   && apt-get autoclean -y \
   && rm -rf /var/lib/apt/lists/*
 
-RUN
-  true && \
+RUN true && \
   R -q -e 'install.packages("remotes")' && \
   R -q -e 'remotes::install_github("r-hub/sysreqs")' && \
   true
