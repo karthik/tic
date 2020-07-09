@@ -1,4 +1,4 @@
-FROM cran/ubuntu
+FROM ubuntu:focal
 
 ARG R_VERSION
 ARG BUILD_DATE
