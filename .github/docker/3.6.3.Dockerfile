@@ -22,7 +22,7 @@ RUN apt-get update \
     libblas-dev \
     libbz2-1.0 \
     libcurl4 \
-    libicu65 \
+    libicu66 \
     libjpeg-turbo \
     libopenblas-dev \
     libpangocairo-1.0-0 \
