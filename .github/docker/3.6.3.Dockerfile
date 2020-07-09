@@ -111,7 +111,7 @@ RUN apt-get update \
    else MRAN=https://mran.microsoft.com/snapshot/${BUILD_DATE}; fi \
    && echo MRAN=$MRAN >> /etc/environment \
   && echo "options(repos = c(RSPM ='https://packagemanager.rstudio.com/cran/__linux__/focal/latest', CRAN='$MRAN'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
-  && echo 'options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> usr/local/lib/R/etc/Rprofile.site \
+  && echo 'options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> /usr/local/lib/R/etc/Rprofile.site \
   ## Clean up from R source install
   && cd / \
   && rm -rf /tmp/* \
