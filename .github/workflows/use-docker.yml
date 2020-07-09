@@ -6,7 +6,7 @@ name: use-docker
 jobs:
   all:
     runs-on: ubuntu-latest
-    container: ubuntu:focal
+    container: pats22/tic
 
     steps:
       - uses: actions/checkout@v2
