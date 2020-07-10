@@ -129,7 +129,10 @@ COPY DESCRIPTION pkg/DESCRIPTION
 
 ENV RHUB_PLATFORM=linux-x86_64-ubuntu-gcc
 
-RUN Rscript -e 'cat(sysreqs::sysreq_commands("pkg/DESCRIPTION"))' | tee /dev/stderr | sh
+RUN Rscript -e 'cat(sysreqs::sysreq_commands("pkg/DESCRIPTION"))'| tee /dev/stderr | sh \
+  && apt-get autoremove -y \
+  && apt-get autoclean -y \
+  && rm -rf /var/lib/apt/lists/*
 
 RUN Rscript -e 'remotes::install_deps("pkg", dependencies = TRUE)'
 
