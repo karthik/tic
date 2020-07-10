@@ -125,12 +125,12 @@ RUN true && \
   R -q -e 'remotes::install_github("r-hub/sysreqs")' && \
   true
 
-COPY DESCRIPTION .
+COPY DESCRIPTION pkg/DESCRIPTION
 
 ENV RHUB_PLATFORM=linux-x86_64-ubuntu-gcc
 
-RUN sysreqs=`R -q -e 'cat(sysreqs::sysreq_commands("DESCRIPTION"))'`; echo $sysreqs
+RUN sysreqs=`R -q -e 'cat(sysreqs::sysreq_commands("pkg/DESCRIPTION"))'`; echo $sysreqs
 
-RUN sysreqs=`R -q -e 'cat(sysreqs::sysreq_commands("DESCRIPTION"))'`; eval $sysreqs
+RUN sysreqs=`R -q -e 'cat(sysreqs::sysreq_commands("pkg/DESCRIPTION"))'`; eval $sysreqs
 
 RUN R -q -e 'install.packages("tic")'
