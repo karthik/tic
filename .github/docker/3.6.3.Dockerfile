@@ -129,8 +129,8 @@ COPY DESCRIPTION .
 
 ENV RHUB_PLATFORM=linux-x86_64-ubuntu-gcc
 
-RUN R -q -e 'cat(sysreqs::sysreq_commands("DESCRIPTION"))'
+RUN sysreqs=`R -q -e 'cat(sysreqs::sysreq_commands("DESCRIPTION"))'` echo $sysreqs
 
-RUN eval `R -q -e \'cat(sysreqs::sysreq_commands("DESCRIPTION"))\'`
+RUN sysreqs=`R -q -e 'cat(sysreqs::sysreq_commands("DESCRIPTION"))'` eval $sysreqs
 
 RUN R -q -e 'install.packages("tic")'
