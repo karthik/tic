@@ -139,3 +139,11 @@ RUN Rscript -e 'remotes::install_deps("pkg", dependencies = TRUE)'
 COPY . pkg
 
 RUN R -q -e 'remotes::install_local("pkg")'
+
+RUN apt-get update \
+  && apt-get install -y tree \
+  && apt-get autoremove -y \
+  && apt-get autoclean -y \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN tree --du -h /usr/local
