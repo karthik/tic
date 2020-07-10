@@ -129,9 +129,9 @@ COPY DESCRIPTION pkg/DESCRIPTION
 
 ENV RHUB_PLATFORM=linux-x86_64-ubuntu-gcc
 
-RUN sysreqs=`R -q -e 'cat(sysreqs::sysreq_commands("pkg/DESCRIPTION"))'`; echo $sysreqs
+RUN Rscript -e 'cat(sysreqs::sysreq_commands("pkg/DESCRIPTION"))'
 
-RUN sysreqs=`R -q -e 'cat(sysreqs::sysreq_commands("pkg/DESCRIPTION"))'`; eval $sysreqs
+RUN Rscript -e 'cat(sysreqs::sysreq_commands("pkg/DESCRIPTION"))' | sh
 
 RUN Rscript -e 'remotes::install_deps("pkg", dependencies = TRUE)'
 
