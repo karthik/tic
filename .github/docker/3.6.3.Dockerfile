@@ -124,3 +124,9 @@ RUN true && \
   R -q -e 'install.packages("remotes")' && \
   R -q -e 'remotes::install_github("r-hub/sysreqs")' && \
   true
+
+RUN R -q -e 'cat(sysreqs::sysreq_commands("DESCRIPTION"))'
+
+RUN eval $(R -q -e 'cat(sysreqs::sysreq_commands("DESCRIPTION"))'
+
+RUN R -q -e 'install.packages("tic")'
