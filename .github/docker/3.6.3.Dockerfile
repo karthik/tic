@@ -131,6 +131,6 @@ ENV RHUB_PLATFORM=linux-x86_64-ubuntu-gcc
 
 RUN R -q -e 'cat(sysreqs::sysreq_commands("DESCRIPTION"))'
 
-RUN eval $(R -q -e 'cat(sysreqs::sysreq_commands("DESCRIPTION"))')
+RUN eval `R -q -e 'cat(sysreqs::sysreq_commands("DESCRIPTION"))'`
 
 RUN R -q -e 'install.packages("tic")'
