@@ -146,4 +146,4 @@ RUN apt-get update \
   && apt-get autoclean -y \
   && rm -rf /var/lib/apt/lists/*
 
-RUN tree --du -h /usr/local
+RUN tree --du -h -L 2 --sort=size /usr/local
