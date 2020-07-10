@@ -125,7 +125,7 @@ RUN true && \
   R -q -e 'remotes::install_github("r-hub/sysreqs")' && \
   true
 
-RUN copy DESCRIPTION .
+COPY DESCRIPTION .
 
 RUN R -q -e 'cat(sysreqs::sysreq_commands("DESCRIPTION"))'
 
