@@ -133,4 +133,8 @@ RUN sysreqs=`R -q -e 'cat(sysreqs::sysreq_commands("pkg/DESCRIPTION"))'`; echo $
 
 RUN sysreqs=`R -q -e 'cat(sysreqs::sysreq_commands("pkg/DESCRIPTION"))'`; eval $sysreqs
 
-RUN R -q -e 'install.packages("tic")'
+RUN Rscript -e 'remotes::install_deps("pkg", dependencies = TRUE)'
+
+COPY . pkg
+
+RUN R -q -e 'remotes::install_git("pkg")'
