@@ -12,6 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: "Prepare build context"
+        run: |
+          cp DESCRIPTION .github/docker
+
       - uses: whoan/docker-build-with-cache-action@v5
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
