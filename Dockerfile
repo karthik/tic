@@ -1,11 +1,9 @@
 FROM ubuntu:focal
 
 ARG R_VERSION
-ARG BUILD_DATE
 ARG CRAN
-ENV BUILD_DATE ${BUILD_DATE:-2020-04-24}
 ENV R_VERSION=${R_VERSION:-3.6.3} \
-    CRAN=${CRAN:-https://cran.rstudio.com} \
+    CRAN=${CRAN:-https://cloud.r-project.org} \
     LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
     TERM=xterm
@@ -112,10 +110,7 @@ RUN apt-get update \
   && echo "R_LIBS_USER=\${R_LIBS_USER-'/usr/local/lib/R/site-library'}" >> /usr/local/lib/R/etc/Renviron \
   && echo "R_LIBS=\${R_LIBS-'/usr/local/lib/R/site-library:/usr/local/lib/R/library:/usr/lib/R/library'}" >> /usr/local/lib/R/etc/Renviron \
   ## Set configured CRAN mirror
-  && if [ -z "$BUILD_DATE" ]; then MRAN=$CRAN; \
-   else MRAN=https://mran.microsoft.com/snapshot/${BUILD_DATE}; fi \
-   && echo MRAN=$MRAN >> /etc/environment \
-  && echo "options(repos = c(RSPM ='https://packagemanager.rstudio.com/cran/__linux__/focal/latest', CRAN='$MRAN'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
+  && echo "options(repos = c(RSPM ='https://packagemanager.rstudio.com/cran/__linux__/focal/latest', CRAN='$CRAN'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
   && echo 'options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))' >> /usr/local/lib/R/etc/Rprofile.site \
   ## Clean up from R source install
   && cd / \
